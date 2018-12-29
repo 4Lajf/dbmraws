@@ -1,0 +1,122 @@
+{
+  "name": "purge",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "ydOdR",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "thebot",
+      "name": "Get Bot as Member"
+    },
+    {
+      "member": "2",
+      "varName": "thebot",
+      "permission": "MANAGE_MESSAGES",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "16",
+      "name": "Check Member Permissions"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "permission": "MANAGE_MESSAGES",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "10",
+      "name": "Check Member Permissions"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "param",
+      "name": "Store Command Params"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "12",
+      "name": "Check Parameters"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "parseInt(tempVars(\"param\"))",
+      "storage": "1",
+      "varName": "rsoutcome",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "rsoutcome",
+      "comparison": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "14",
+      "name": "Check Variable Type"
+    },
+    {
+      "channel": "0",
+      "count": "${tempVars(\"param\")}",
+      "condition": "0",
+      "custom": "",
+      "varName": "",
+      "name": "Delete Bulk Messages"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You require \"MANAGE MESSAGES\" to use this command",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please input the amount of messages to purge\n!!purge {number}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "`${tempVars(\"param\")}` is not a number!\n!!purge {number}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The bot does not have the permissions to go through with this action\nPlease give the bot the permission \"MANAGE MESSAGES\"",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
